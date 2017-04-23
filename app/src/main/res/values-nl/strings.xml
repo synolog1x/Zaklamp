@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simpele Zaklamp</string>
+    <string name="no_flash_warning">Uw apparaat heeft geen flitser!</string>
+    <string name="error">Waarschuwing</string>
+</resources>

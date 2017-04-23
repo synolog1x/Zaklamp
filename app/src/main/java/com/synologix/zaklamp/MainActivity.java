@@ -86,8 +86,8 @@ public class MainActivity extends Activity {
 
     private void showNoFlashAlert() {
         new AlertDialog.Builder(this)
-                .setMessage("Your device hardware does not support flashlight!")
-                .setIcon(android.R.drawable.ic_dialog_alert).setTitle("Error")
+                .setMessage(R.string.no_flash_warning)
+                .setIcon(android.R.drawable.ic_dialog_alert).setTitle(R.string.error)
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
                     @Override
