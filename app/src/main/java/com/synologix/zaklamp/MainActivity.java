@@ -17,6 +17,11 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
+
 public class MainActivity extends Activity {
     private Camera camera;
     private Camera.Parameters parameters;
@@ -25,7 +30,7 @@ public class MainActivity extends Activity {
     //voor android m
     static boolean toggle=false;
     CameraManager cameraManager;
-
+    AdView mAdView;
 
 
 
@@ -35,6 +40,13 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_main);
+
+        //AD
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
+
+        mAdView = (AdView) findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         flashlightButton = (ImageButton) findViewById(R.id.flashlightButton);
         flashlightButton.setBackgroundColor(Color.DKGRAY);
@@ -54,6 +66,24 @@ public class MainActivity extends Activity {
 
 
     }
+
+    @Override
+    public void onPause() {
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+        super.onPause();
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
 
     private class FlashOnOffListener implements View.OnClickListener {
 
@@ -142,6 +172,10 @@ public class MainActivity extends Activity {
             camera.stopPreview();
             camera.release();
             camera = null;
+        }
+
+        if (mAdView != null) {
+            mAdView.destroy();
         }
         super.onDestroy();
     }

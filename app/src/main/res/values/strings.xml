@@ -2,4 +2,6 @@
     <string name="app_name">Simple Flashlight</string>
     <string name="no_flash_warning">Your device does not have a flashlight!</string>
     <string name="error">Error</string>
+
+    <string name="banner_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
 </resources>
