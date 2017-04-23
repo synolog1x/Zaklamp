@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+
+    <ImageButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/flashlightoff"
+        android:id="@+id/flashlightButton"
+        android:layout_weight="1"
+        android:scaleType="centerInside"
+        android:fitsSystemWindows="true"
+        android:cropToPadding="false"
+        android:hapticFeedbackEnabled="true"
+        tools:background="#ff444444" />
+
+</LinearLayout>
